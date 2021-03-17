@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food site</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="active" id="navbar">
+            <a href="#" class="logo">Good <span>Foods</span></a>
+            <ul>
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#" >Menu</a></li>
+                <li><a href="#" >About</a></li>
+                <li><a href="#" >Contact</a></li>
+            </ul>
+            <span class="menuIcon" onclick="menuToggle();"></span>
+        </header>
+        <div class="content">
+            <div class="bannerText" id="slideshowText">
+                <div class="active">
+                    <h2>EAT Healthy <br>
+                    Stay Healthy</h2>
+                    <p>W3Schools is optimized for learning and training. Examples might be simplified to improve reading and learning. 
+                    Tutorials, references, and examples are constantly reviewed to avoid errors, but we cannot warrant full correctness 
+                    of all</p>
+                    <a href="#">Read More</a>
+                </div>
+                <div>
+                    <h2>EAT Your <br>
+                    Veggies</h2>
+                    <p>Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commondo
+                        consequat.</p>
+                    <a href="#">Read More</a>
+                </div>
+                <div>
+                    <h2>Good Food<br>
+                    Good Mood</h2>
+                    <p>Duis aute irure dolor in reprehendreit in voluptate velit esse
+                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                    <a href="#">Read More</a>
+                </div>
+            </div>
+            <div class="bannerImg" id="slideshow">
+                <img src="images/img1.jpg" class="active"> 
+                <img src="images/img2.jpg"> 
+                <img src="images/img3.jpg"> 
+            </div>
+        </div>
+        <div class="icons">  
+            <ul class="sci">
+                <li><a href="#"><img src="images/facebook-logo.png"></a></li>
+                <li><a href="#"><img src="images/twitter.png"></a></li>
+                <li><a href="#"><img src="images/instagram.png"></a></li>
+            </ul>
+            <ul class="controls">
+                <li><a><img src="images/arrowhead-thin-outline-to-the-left.png" onclick="prevSlide();prevSlideText()"></a></li>
+                <li><a><img src="images/arrow-point-to-right.png" onclick="nextSlide();nextSlideText()"></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var slideshow  = document.getElementById('slideshow');
+        var slides = slideshow.getElementsByTagName('img');
+        var index = 0;
+
+        function nextSlide(){
+            slides[index].classList.remove('active');
+            index = (index + 1)% slides.length;
+            slides[index].classList.add('active');
+        }
+        function prevSlide(){
+            slides[index].classList.remove('active');
+            index = (index - 1 + slides.length)% slides.length;
+            slides[index].classList.add('active');
+        }
+
+
+        var slideshowText  = document.getElementById('slideshowText');
+        var slidesText = slideshowText.getElementsByTagName('div');
+        var i = 0;
+
+        function nextSlideText(){
+            slidesText[i].classList.remove('active');
+            i = (i + 1)% slidesText.length;
+            slidesText[i].classList.add('active');
+        }
+        function prevSlideText(){
+            slidesText[i].classList.remove('active');
+            i = (i - 1 + slidesText.length)% slidesText.length;
+            slidesText[i].classList.add('active');
+        }
+
+        function menuToggle(){
+            var nav  = document.getElementById('navbar');
+            nav.classList.toggle('active');
+        }
+
+    </script>
+</body>
+</html>
